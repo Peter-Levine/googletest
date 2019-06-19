@@ -77,6 +77,7 @@ sandbox ${SBX_OPTS} cmake -Dgtest_build_samples=ON \
       -DCMAKE_COMPILER_IS_GNUCXX=$COMPILER_IS_GNUCXX \
       -DCMAKE_CXX_FLAGS=$CXX_FLAGS \
       -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
+      -DBUILD_SHARED_LIBS=on \
       ..
 sandbox ${SBX_OPTS} make
 CTEST_OUTPUT_ON_FAILURE=1 sandbox ${SBX_OPTS} make test
