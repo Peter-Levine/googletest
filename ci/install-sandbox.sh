@@ -34,4 +34,4 @@ VER=2.17
 wget http://distfiles.gentoo.org/distfiles/sandbox-${VER}.tar.xz
 tar -xvf sandbox-${VER}.tar.xz
 pushd sandbox-${VER} && ./configure --prefix=/usr --libdir=/usr/lib --sysconfdir=/etc && make && sudo make install && popd
-sandbox ./travis.sh
+sandbox ./ci/travis.sh
