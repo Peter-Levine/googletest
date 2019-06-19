@@ -67,8 +67,9 @@ env | sort
 
 mkdir build || true
 cd build
-export SANDBOX_WRITE="$(pwd):${TRAVIS_BUILD_DIR}"
-sandbox cmake -Dgtest_build_samples=ON \
+export SANDBOX_WRITE="$(pwd):${TRAVIS_BUILD_DIR}:/dev/fd:/proc/self/fd:/dev/zero:/dev/null:/dev/full:/dev/console:/dev/tty:/dev/vc/:/dev/pty:/dev/tts"
+export SBX_OPTS="--ns-on --ns-ipc-on --ns-mnt-on --ns-net-on --ns-pid-on --ns-sysv-on --ns-user-on --ns-uts-on"
+sandbox ${SBX_OPTS} cmake -Dgtest_build_samples=ON \
       -Dgtest_build_tests=ON \
       -Dgmock_build_tests=ON \
       -Dcxx_no_exception=$NO_EXCEPTION \
@@ -77,5 +78,5 @@ sandbox cmake -Dgtest_build_samples=ON \
       -DCMAKE_CXX_FLAGS=$CXX_FLAGS \
       -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
       ..
-sandbox make
-CTEST_OUTPUT_ON_FAILURE=1 sandbox make test
+sandbox ${SBX_OPTS} make
+CTEST_OUTPUT_ON_FAILURE=1 sandbox ${SBX_OPTS} make test
