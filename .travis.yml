@@ -31,8 +31,6 @@ matrix:
       compiler: gcc
       sudo : true      
       before_install: chmod -R +x ./ci/install-sandbox.sh && ./ci/install-sandbox.sh
-      install: sudo sandbox ./ci/install-linux.sh && sudo sandbox ./ci/log-config.sh
-      script: sandbox ./ci/build-linux-bazel.sh
       env: BUILD_TYPE=Debug VERBOSE=1 CXX_FLAGS=-std=c++11 SANDBOX_WRITE=/
     - os: linux
       group: deprecated-2017Q4
