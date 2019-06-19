@@ -31,6 +31,6 @@
 
 set -e
 
-bazel build --curses=no //...:all
-bazel test --curses=no //...:all
-bazel test --curses=no //...:all --define absl=1
+sudo sandbox bazel build --curses=no //...:all
+sudo sandbox bazel test --curses=no //...:all
+sudo sandbox bazel test --curses=no //...:all --define absl=1
