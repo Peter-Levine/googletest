@@ -29,7 +29,7 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-local VER=2.17
+VER=2.17
 
 wget http://distfiles.gentoo.org/distfiles/sandbox-${VER}.tar.xz
 tar -xvf sandbox-${VER}.tar.xz
