@@ -33,7 +33,7 @@ matrix:
       before_install: chmod -R +x ./ci/install-sandbox.sh
       install: ./ci/install-linux.sh && ./ci/log-config.sh
       script: ./ci/install-sandbox.sh
-      env: BUILD_TYPE=Debug VERBOSE=1 CXX_FLAGS=-std=c++11 SANDBOX_WRITE=/
+      env: BUILD_TYPE=Debug VERBOSE=1 CXX_FLAGS=-std=c++11
     - os: linux
       group: deprecated-2017Q4
       compiler: gcc
