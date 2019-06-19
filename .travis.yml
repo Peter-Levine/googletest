@@ -30,7 +30,13 @@ matrix:
     - os: linux
       group: deprecated-2017Q4
       compiler: gcc
-      env: BUILD_TYPE=Debug VERBOSE=1 CXX_FLAGS=-std=c++11 
+      env: BUILD_TYPE=Debug VERBOSE=1 CXX_FLAGS=-std=c++11
+    - os: linux
+      compiler: gcc
+      before_install: ./ci/install-sandbox.sh
+      install: sandbox ./ci/install-linux.sh && sandbox ./ci/log-config.sh
+      script: sandbox ./ci/build-linux-bazel.sh
+      env: BUILD_TYPE=Debug VERBOSE=1 CXX_FLAGS=-std=c++11 SANDBOX_WRITE=/
     - os: linux
       group: deprecated-2017Q4
       compiler: clang
