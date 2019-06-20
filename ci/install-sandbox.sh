@@ -35,6 +35,8 @@ wget http://distfiles.gentoo.org/distfiles/sandbox-${VER}.tar.xz
 tar -xvf sandbox-${VER}.tar.xz
 pushd sandbox-${VER} && ./configure --prefix=/usr --libdir=/usr/lib --sysconfdir=/etc && make && sudo make install && popd
 
+ls -l /usr/lib/sandbox.*
+
 set -evx
 
 . ci/get-nprocessors.sh
